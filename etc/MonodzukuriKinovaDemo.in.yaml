@@ -44,7 +44,7 @@ states:
     targetPosition: [0.6, 0.0, 0.4]
     targetOrientationQuaternion: [1.0, -1.0, -1.0, -1.0]
     workspaceConstraintEnabled: true
-    workspaceMin: [0.4, -0.8, -0.2]
+    workspaceMin: [0.0, -0.8, -0.2]
     workspaceMax: [1.0, 0.8, 0.7]
     residualGain: 10.0
     planarTranslationTriggerOnThreshold: 10.0

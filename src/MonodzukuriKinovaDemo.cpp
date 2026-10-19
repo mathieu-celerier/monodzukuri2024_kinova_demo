@@ -267,14 +267,17 @@ bool MonodzukuriKinovaDemo::hasSimulatedJoystickInput(void) const {
 }
 
 void MonodzukuriKinovaDemo::resetModeSwitchState(void) {
-  joypadNullSpaceModeFlag = false;
-  joypadCompliSinusModeFlag = false;
-  joypadComplianceModeFlag = false;
-  joypadMinJerkModeFlag = false;
-  joypadBoxDemoModeFlag = false;
+  // A mode button pressed in the previous state ended it to come back here:
+  // keep that request so Initial goes on to the requested mode
+  if (!changeModeRequest) {
+    joypadNullSpaceModeFlag = false;
+    joypadCompliSinusModeFlag = false;
+    joypadComplianceModeFlag = false;
+    joypadMinJerkModeFlag = false;
+    joypadBoxDemoModeFlag = false;
+  }
   joypadReturnToInitialFlag = false;
   changeModeAvailable = true;
-  changeModeRequest = false;
 
   auto reset_last_states = [this]() {
     upPadLastState_ = false;
