@@ -1122,16 +1122,137 @@
         "type": "github"
       }
     },
+    "mc-joystick-plugin-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765169308,
+        "narHash": "sha256-bDkI3o5172JEmgjyhVQH+LgoUl9qRZ8NDOtGM97M/r4=",
+        "ref": "before-force-push",
+        "rev": "ca5a176967b5ad8a0216630cffcb5192404883ed",
+        "revCount": 26,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mathieu-celerier/mc_joystick_plugin"
+      },
+      "original": {
+        "ref": "before-force-push",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mathieu-celerier/mc_joystick_plugin"
+      }
+    },
+    "mc-kinova-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787042303,
+        "narHash": "sha256-dRvw4M9gxr1TrCrDcknf1BLAp+CWlXNzbfelnWxEO94=",
+        "owner": "mathieu-celerier",
+        "repo": "mc_kinova",
+        "rev": "68a82b9b90b2b4c433ba103aeb20285e30fc494b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mathieu-celerier",
+        "ref": "topic/add-genA-bota",
+        "repo": "mc_kinova",
+        "type": "github"
+      }
+    },
+    "mc-kortex-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792388529,
+        "narHash": "sha256-JpW1Q/DWdGvQunFwZvKhQI2xqCSK4Lc8pscstaa4AkM=",
+        "owner": "mathieu-celerier",
+        "repo": "mc_kortex",
+        "rev": "73d7965e291a440e4ccf0e77914a924911079669",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mathieu-celerier",
+        "repo": "mc_kortex",
+        "type": "github"
+      }
+    },
+    "mc-residual-estimation-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777536780,
+        "narHash": "sha256-rzWtNE4mJ73dX+gTR9hdQDTmHlLMMl+8nwJ7KwbA/Nk=",
+        "owner": "mathieu-celerier",
+        "repo": "mc_residual_estimation",
+        "rev": "7ad9a5911da0a0124d1c4857307505e9e7cea226",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mathieu-celerier",
+        "ref": "topic/HumanoidResidual_new_implementation",
+        "repo": "mc_residual_estimation",
+        "type": "github"
+      }
+    },
+    "mc-rtc": {
+      "inputs": {
+        "ccache-trigger": [
+          "mc-rtc-kinova-external-forces",
+          "mc-rtc",
+          "mc-rtc-nix",
+          "ccache-trigger"
+        ],
+        "flake-parts": [
+          "mc-rtc-kinova-external-forces",
+          "mc-rtc",
+          "mc-rtc-nix",
+          "flake-parts"
+        ],
+        "gepetto": [
+          "mc-rtc-kinova-external-forces",
+          "mc-rtc",
+          "mc-rtc-nix",
+          "gepetto"
+        ],
+        "mc-rtc-nix": [
+          "mc-rtc-kinova-external-forces",
+          "mc-rtc-nix"
+        ],
+        "systems": [
+          "mc-rtc-kinova-external-forces",
+          "mc-rtc",
+          "mc-rtc-nix",
+          "systems"
+        ],
+        "with-ros-trigger": [
+          "mc-rtc-kinova-external-forces",
+          "mc-rtc",
+          "mc-rtc-nix",
+          "with-ros-trigger"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785940175,
+        "narHash": "sha256-1OGFAgHt5jglSMpFMroMLMpDr5sMex7Wz3NebbDdJXk=",
+        "owner": "mathieu-celerier",
+        "repo": "mc_rtc",
+        "rev": "e96874ff366efc8f214426d07214ec4393dc0d41",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mathieu-celerier",
+        "ref": "topic/second-order-velocity-damper",
+        "repo": "mc_rtc",
+        "type": "github"
+      }
+    },
     "mc-rtc-kinova-base": {
       "inputs": {
         "mc-rtc-nix": "mc-rtc-nix"
       },
       "locked": {
-        "lastModified": 1785840952,
-        "narHash": "sha256-Tvj8dMqUjTfA7s+HvaiGM+sBQSr8RvFPoev4KR1gcik=",
+        "lastModified": 1785851374,
+        "narHash": "sha256-O7nxXF+ch4MbM5ao0b3gyJv0d2x6Rkf5zG9yln6ChEk=",
         "owner": "mathieu-celerier",
         "repo": "mc-rtc-kinova-base",
-        "rev": "9e4e1c2e5a3d55d79f5d5ff6f8881f2420d0f5c8",
+        "rev": "94526a8b2687757107f8c99c2f927805ef763d95",
         "type": "github"
       },
       "original": {
@@ -1147,8 +1268,13 @@
           "mc-rtc-nix",
           "flake-parts"
         ],
+        "mc-kinova-src": "mc-kinova-src",
+        "mc-kortex-src": "mc-kortex-src",
+        "mc-residual-estimation-src": "mc-residual-estimation-src",
+        "mc-rtc": "mc-rtc",
         "mc-rtc-kinova-base": "mc-rtc-kinova-base",
         "mc-rtc-nix": "mc-rtc-nix_2",
+        "minimum-jerk-task-src": "minimum-jerk-task-src",
         "systems": [
           "mc-rtc-kinova-external-forces",
           "mc-rtc-nix",
@@ -1156,11 +1282,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785850005,
-        "narHash": "sha256-p42n1iQnuKdZAf4YT4KJn1lS7GR+2YVLxKaZZgsWppI=",
+        "lastModified": 1785944965,
+        "narHash": "sha256-/pA4ayE4FR6HaImC0Nfa/GcEruf+0P1ZEq84RjkCL/I=",
         "owner": "mathieu-celerier",
         "repo": "mc-rtc-kinova-external-forces",
-        "rev": "ca825b8eee958153edb4f4e7e38bd388cda74015",
+        "rev": "8fe0e4ec85749ad88920d52f543c7d7219e55c49",
         "type": "github"
       },
       "original": {
@@ -1311,6 +1437,25 @@
         "owner": "mc-rtc",
         "repo": "nixpkgs",
         "type": "github"
+      }
+    },
+    "minimum-jerk-task-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761536626,
+        "narHash": "sha256-n2gYtqNWlyuP6OIFuFVBXjrXusZ2p3lRQ7ccI7l/AFU=",
+        "ref": "main",
+        "rev": "eb5573e0e0604a04cc2adf7dda9f8d6c6d37474f",
+        "revCount": 19,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mathieu-celerier/MinimumJerkTask"
+      },
+      "original": {
+        "ref": "main",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mathieu-celerier/MinimumJerkTask"
       }
     },
     "nix-ros-overlay": {
@@ -1878,6 +2023,7 @@
           "mc-rtc-nix",
           "flake-parts"
         ],
+        "mc-joystick-plugin-src": "mc-joystick-plugin-src",
         "mc-rtc-kinova-external-forces": "mc-rtc-kinova-external-forces",
         "mc-rtc-nix": "mc-rtc-nix_3",
         "systems": [

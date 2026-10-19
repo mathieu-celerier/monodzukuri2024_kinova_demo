@@ -43,7 +43,18 @@ mkMcRtcController {
   passthru.mc-rtc = {
     controller = {
       Enabled = "MonodzukuriKinovaDemo";
+      # Bota (gen 0, EtherCAT) sensor with the hook end-effector, from mc_kinova
+      MainRobot = "KinovaBotaHook";
     };
+
+    # etc/MonodzukuriKinovaDemo.in.yaml loads these unconditionally, and mc_rtc treats a missing
+    # plugin as a critical error
+    plugins = [
+      "mc-ros-force-sensor"
+      "mc-residual-estimation"
+      "mc-joystick-plugin"
+    ];
+    robots = [ "mc-kinova" ];
   };
 
   meta = with lib; {
