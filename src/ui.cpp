@@ -1,9 +1,11 @@
 #include "ui.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <chrono>
 #include <cmath>
 #include <iomanip>
 #include <sstream>
+#include <thread>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -99,6 +101,11 @@ void FittsGame::run() {
   // Poll for and process events
   glfwPollEvents();
 
+  // Cap the frame rate: vsync is off, and with software rendering (Xvfb, ssh -X,
+  // no GPU access) an uncapped loop takes several cores away from the control loop
+  const auto frame_period = std::chrono::microseconds(1000000 / 60);
+  auto next_frame = std::chrono::steady_clock::now();
+
   // Main loop
   while (!glfwWindowShouldClose(window)) {
     glEnable(GL_BLEND);
@@ -188,6 +195,13 @@ void FittsGame::run() {
 
     glfwSwapBuffers(window);
     glfwPollEvents();
+
+    next_frame += frame_period;
+    const auto now = std::chrono::steady_clock::now();
+    if (next_frame < now)
+      next_frame = now;
+    else
+      std::this_thread::sleep_until(next_frame);
   }
 
   // Clean up
