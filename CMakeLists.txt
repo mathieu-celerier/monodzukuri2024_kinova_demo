@@ -36,4 +36,5 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/etc/MonodzukuriKinovaDemo.yaml"
 # etc/MonodzukuriKinovaDemo/plugins/<Plugin>.yaml under this install prefix (see
 # MCGlobalController::GlobalConfiguration::load_controller_plugin_configs()).
 install(FILES "etc/MonodzukuriKinovaDemo/plugins/ExternalForcesEstimator.yaml"
+              "etc/MonodzukuriKinovaDemo/plugins/RosForceSensor.yaml"
         DESTINATION "${MC_CONTROLLER_RUNTIME_INSTALL_PREFIX}/etc/MonodzukuriKinovaDemo/plugins")

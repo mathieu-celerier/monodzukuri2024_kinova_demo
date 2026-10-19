@@ -1,0 +1,14 @@
+# Per-controller override for the RosForceSensor plugin, read by mc_rtc's
+# load_controller_plugin_configs() from etc/MonodzukuriKinovaDemo/plugins/RosForceSensor.yaml
+# under the controller's install prefix.
+#
+# The mc_ros_force_sensor branch packaged by mc-rtc-kinova-external-forces
+# (topic/new-implementation) predates the new Bota driver, so both of its defaults are wrong here:
+#
+#   reference_frame  - defaults to FT_sensor_force, which is not a body on the Bota Kinova
+#                      variants (mc_kinova declares EEForceSensor on FT_sensor_wrench);
+#                      bodyPosW() throws on it as soon as the topic publishes.
+#   ros_topic_sensor - defaults to the older /bus0/ft_sensor0/... naming; the Bota ROS 2 driver
+#                      (bota_driver_node, node_name bota_ft_sensor) publishes /bota_ft_sensor/wrench.
+reference_frame: FT_sensor_wrench
+ros_topic_sensor: /bota_ft_sensor/wrench
