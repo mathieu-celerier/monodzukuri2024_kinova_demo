@@ -47,6 +47,9 @@
                   # The UI exits the controller when it cannot open its window: a virtual
                   # display lets it run on a machine with no screen
                   pkgs.xvfb-run
+                  # vglrun: the UI rendered on the NUC's GPU and sent compressed to a remote
+                  # viewer (vglconnect -s), instead of raw ssh -X images on the arm's cable
+                  pkgs.virtualgl
                 ];
 
                 configurations.MonodzukuriKinovaDemo = {
