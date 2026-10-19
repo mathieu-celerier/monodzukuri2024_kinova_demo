@@ -7,13 +7,18 @@ set(PROJECT_NAME MonodzukuriKinovaDemo)
 set(PROJECT_DESCRIPTION "MonodzukuriKinovaDemo")
 set(PROJECT_URL "")
 
-add_compile_definitions(PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
-
 project(
   ${PROJECT_NAME}
   LANGUAGES CXX
   VERSION 1.0.0)
 include(CTest)
+include(GNUInstallDirs)
+
+# Images of the visitor UI (src/ui.cpp), read from the install prefix so they survive builds
+# whose source tree is gone afterwards (nix)
+set(ASSETS_INSTALL_DIR "${CMAKE_INSTALL_FULL_DATADIR}/${PROJECT_NAME}")
+add_compile_definitions(ASSETS_INSTALL_DIR="${ASSETS_INSTALL_DIR}")
+install(DIRECTORY src/assets-en src/assets-jp DESTINATION "${ASSETS_INSTALL_DIR}")
 enable_testing()
 
 if(NOT TARGET mc_rtc::mc_control)

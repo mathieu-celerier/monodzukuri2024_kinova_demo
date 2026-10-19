@@ -520,8 +520,7 @@ void FittsGame::renderTargetIdx(float x, float y, int idx) {
 
 std::string FittsGame::getPath(const std::string &filename, bool english)
 {
-  std::filesystem::path source_root = PROJECT_SOURCE_DIR;
-  std::filesystem::path asset_dir = source_root / "src" / (english ? "assets-en" : "assets-jp");
+  std::filesystem::path asset_dir = std::filesystem::path(ASSETS_INSTALL_DIR) / (english ? "assets-en" : "assets-jp");
   mc_rtc::log::info("Loading asset from: {}", (asset_dir / filename).string());
   return (asset_dir / filename).string();
 }
