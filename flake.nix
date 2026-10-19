@@ -41,8 +41,13 @@
                 # The generated mc_rtc.yaml sets `LoadUserConfiguration: false`, so neither
                 # Timestep nor the Kortex block of ~/.config/mc_rtc/mc_rtc.yaml is read: both
                 # come from here. mc_kortex runs a 1 kHz loop.
-                # `ros2 topic` (hz, echo) to check the Bota wrench from inside the shell
-                extraBuildInputs = [ pkgs.rosPackages.jazzy.ros2topic ];
+                extraBuildInputs = [
+                  # `ros2 topic` (hz, echo) to check the Bota wrench from inside the shell
+                  pkgs.rosPackages.jazzy.ros2topic
+                  # The UI exits the controller when it cannot open its window: a virtual
+                  # display lets it run on a machine with no screen
+                  pkgs.xvfb-run
+                ];
 
                 configurations.MonodzukuriKinovaDemo = {
                   timeStep = 0.001;
